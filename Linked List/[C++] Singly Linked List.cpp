@@ -26,6 +26,13 @@ class Node{
 };
 
 void insertAtHead(Node* &head, int d){
+    //if passed head is already empty.
+    if(head == NULL){
+        Node *temp = new Node(d);
+        head = temp;
+        return;
+    }
+
     Node *temp=new Node(d);
     temp->next = head;
     head = temp;
@@ -33,6 +40,13 @@ void insertAtHead(Node* &head, int d){
 
 void insertAtTail(Node* &tail, int d)
 {
+    //if passed tail is already empty.
+    if(tail == NULL){
+        Node *temp = new Node(d);
+        tail = temp;
+        return;
+    }
+
     Node *temp = new Node(d);
     tail->next = temp;
     tail = temp;
@@ -44,6 +58,12 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int d)
     if(position == 1)
     {
         insertAtHead(head, d);
+        return;
+    }
+
+    if(position>getLength(head))
+    {
+        cout<<"Enter a position within the length of Linked List!!"<<endl;
         return;
     }
     
@@ -100,6 +120,17 @@ void deleteNode(Node* &head, Node* &tail, int position){
     }
 }
 
+int getLength(Node* &head){
+    int cnt =0;
+    Node *temp = head;
+    while(temp != NULL)
+    {
+        cnt++;
+        temp =temp->next;
+    }
+    return cnt;
+}
+
 void print(Node* &head){
     Node *temp = head;
     
@@ -135,4 +166,5 @@ int main(){
     print(head);
     print(tail);
 
+    cout<<"Length: "<<getLength(head)<<endl;
 }
