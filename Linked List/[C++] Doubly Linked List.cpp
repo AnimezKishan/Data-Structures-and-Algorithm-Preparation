@@ -14,6 +14,17 @@ class Node{
         this->prev = NULL;
         this->next = NULL;
     }
+
+    //destructor
+    ~Node(){
+        int val = this->data;
+        if(next != NULL)
+        {
+            delete next;
+            next = NULL;
+        }
+        cout<<"Memory Freed for node with data: "<<val<<endl;
+    }
 };
 
 //traversing the Linked list
@@ -103,6 +114,50 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int d){
     
 }
 
+void deleteNode(Node* &head, Node* &tail, int position){
+    if(position == 1){
+        Node *temp =head;
+        temp->next->prev = NULL;
+        head = temp->next;
+        temp->next = NULL;
+        delete temp;
+        return;
+    }
+    
+    if(position>getLength(head))
+    {
+        cout<<"Enter a position to delete within the range of Linked List!!"<<endl;
+        return;
+    }
+    
+    Node *curr = head;
+    Node *prev = NULL;
+    int cnt = 1;
+    
+    while(cnt < position)
+    {
+        prev = curr;
+        curr = curr->next;
+        cnt++;
+    }
+    
+    //if curr is pointing to end position
+    if(curr->next == NULL){
+        prev->next = curr->next;
+        tail = prev;
+        curr->prev = NULL;
+        delete curr;
+        return;
+    }
+    
+    curr->next->prev = prev;
+    prev->next = curr->next;
+    curr->next = NULL;
+    curr->prev = NULL;
+    delete curr;
+    
+}
+
 int main()
 {
     Node *node1 = new Node(5);
@@ -127,5 +182,9 @@ int main()
     insertAtPosition(head, tail, 5, 35);
     print(head);
     
+    //deleting at 4th position.
+    deleteNode(head, tail, 4);
+    print(head);
+
     return 0;
 }
