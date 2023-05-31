@@ -25,6 +25,17 @@ class Node{
     
 };
 
+int getLength(Node* &head){
+    int cnt =0;
+    Node *temp = head;
+    while(temp != NULL)
+    {
+        cnt++;
+        temp =temp->next;
+    }
+    return cnt;
+}
+
 void insertAtHead(Node* &head, int d){
     //if passed head is already empty.
     if(head == NULL){
@@ -120,17 +131,6 @@ void deleteNode(Node* &head, Node* &tail, int position){
     }
 }
 
-int getLength(Node* &head){
-    int cnt =0;
-    Node *temp = head;
-    while(temp != NULL)
-    {
-        cnt++;
-        temp =temp->next;
-    }
-    return cnt;
-}
-
 void print(Node* &head){
     Node *temp = head;
     
@@ -141,6 +141,18 @@ void print(Node* &head){
     }
     cout<<endl;
 }
+
+bool isCircular(Node* &head){
+    if(head == NULL)
+        return true;
+    Node* temp = head->next;
+    while(temp != NULL && temp != head){
+        temp = temp->next;
+    }
+    if(temp == head)
+        return true;
+    return false;
+} 
 
 int main(){
     //use of constructor
@@ -167,4 +179,6 @@ int main(){
     print(tail);
 
     cout<<"Length: "<<getLength(head)<<endl;
+
+    cout<<"Is Linked List circular? - "<<isCircular(head);
 }
