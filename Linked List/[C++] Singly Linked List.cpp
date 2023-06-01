@@ -154,6 +154,87 @@ bool isCircular(Node* &head){
     return false;
 } 
 
+bool detectLoop(Node* head){
+    if(head == NULL)
+    {
+        return false;
+    }
+    map<Node*, bool> visited;
+    Node* temp = head;
+    while(temp != NULL){
+        if(visited[temp] == true)
+        {
+            cout<<"Loop is present at element "<<temp->data<<endl;
+            return 1;
+        }
+        visited[temp] = true;
+        temp = temp->next;
+    }
+    cout<<"No Loop Present..."<<endl;
+    return false;
+}
+
+Node* floydDetectLoop(Node* head){
+    if(head == NULL)
+        return NULL;
+    
+    Node *fast = head;
+    Node* slow = head;
+    
+    //After entering the loop, with each iteration, the distance between fast and slow gets smaller. 
+    while(fast != NULL && slow != NULL)
+    {
+        fast = fast->next;
+        if(fast != NULL){
+            fast = fast->next;
+        }
+        slow = slow->next;
+        if(fast == slow)
+        {
+            cout<<"Loop is present..."<<endl;
+            return slow;
+        }
+    }
+    cout<<"No Loop Present..."<<endl;
+    return NULL;
+}
+
+//Distance between starting point to the node where the loop starts = from where the slow is pointing to, till the node where the loop starts
+Node* getStartingLoopNode(Node* head){
+    if(head == NULL)
+        return NULL;
+        
+    Node* intersection = floydDetectLoop(head);
+    
+    if(intersection == NULL)
+        return NULL;
+    
+    Node* start = head;
+    while(start != intersection){
+        start = start->next;
+        intersection = intersection->next;
+    }
+    cout<<"Loop is present at Node with data -> "<<start->data<<endl;
+    return start;
+}
+
+void removeLoop(Node *head){
+    if(head == NULL)
+        return;
+        
+    Node *startOfLoop = getStartingLoopNode(head);
+    
+    if(startOfLoop == NULL)
+        return;
+    
+    Node *temp = startOfLoop;
+    while(temp->next != startOfLoop){
+        temp = temp->next;
+    }
+    cout<<"Loop is removed..."<<endl;
+    temp->next =NULL;
+}
+
 int main(){
     //use of constructor
     Node *node1 = new Node(5);
@@ -181,4 +262,12 @@ int main(){
     cout<<"Length: "<<getLength(head)<<endl;
 
     cout<<"Is Linked List circular? - "<<isCircular(head);
+    
+    tail->next = head->next;
+    
+    detectLoop(head);
+    
+    //floydDetectLoop(head);
+    //getStartingLoopNode(head);
+    removeLoop(head);
 }
