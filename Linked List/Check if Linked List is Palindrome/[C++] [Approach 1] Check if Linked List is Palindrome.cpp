@@ -9,6 +9,9 @@ class Solution{
         -> create an array
         -> store values of LL in that array
         -> check for palindrome in that array
+
+        T.C. ->O(n)
+        S.C. ->O(n)
         */
         
         vector<int> ans;
