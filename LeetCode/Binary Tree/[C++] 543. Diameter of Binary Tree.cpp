@@ -15,7 +15,7 @@
  Seconf Value of Pair: Height
 
  T.C -> O(n)
- S.C -> O(max heightof tree)
+ S.C -> O(max height of tree)
  */
 class Solution {
 private:
