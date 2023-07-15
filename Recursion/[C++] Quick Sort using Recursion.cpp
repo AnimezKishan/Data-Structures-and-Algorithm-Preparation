@@ -3,9 +3,9 @@ using namespace std;
 
 int partition(vector<int> &arr, int s,int e){
     int cnt=0;
-    int pivot = arr[s];
+
     //count the elements smaller than pivot 
-    for(int i=s+1;i<arr.size();i++)
+    for(int i=s+1;i<=e;i++)
     {
         if(arr[i] < arr[s])
             cnt++;
