@@ -29,7 +29,7 @@ bool dfs(int Node, unordered_map<int, set<int>> &adjList, unordered_map<int, boo
 
 string cycleDetection (vector<vector<int>>& edges, int n, int m)
 {
-    unordered_map<int, int> parentNode;
+    
     unordered_map<int, bool> visited;
     unordered_map<int, set<int>> adjList;
 
