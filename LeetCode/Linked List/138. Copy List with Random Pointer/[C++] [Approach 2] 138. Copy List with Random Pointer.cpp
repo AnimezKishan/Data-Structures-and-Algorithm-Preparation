@@ -16,8 +16,8 @@ public:
 
 /*
 1. create a clone node with next pointer
-2. point cloneNode->next to in between of originalNode to keep track of original LL
-3. to avoid using mapping, point originalNode->next to cloneNode
+2. to avoid using mapping, point originalNode->next to cloneNode
+3. point cloneNode->next to in between of originalNode to keep track of original LL
 4. to store random pointers in clone, set temp->next->random = temp->random->next
 5. revert changes done in setp 2
 
@@ -54,16 +54,18 @@ public:
         Node* cloneNode = cloneHead;
         while(originalNode != NULL && cloneNode != NULL)
         {
+            //Step 2
             Node* next = originalNode->next;
             originalNode->next = cloneNode;
             originalNode = next;
 
+            //Step 3
             next = cloneNode->next;
             cloneNode->next = originalNode;
             cloneNode = next;
         }
 
-        //Step 3
+        //Step 4
         temp = head;
         while(temp != NULL)
         {
@@ -76,7 +78,7 @@ public:
             temp = temp->next->next;
         }
 
-        //Step 4
+        //Step 5
         originalNode = head;
         cloneNode = cloneHead;
         while(originalNode != NULL && cloneNode != NULL){
