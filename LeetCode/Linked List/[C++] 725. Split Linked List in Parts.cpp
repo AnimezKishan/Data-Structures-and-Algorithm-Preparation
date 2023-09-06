@@ -51,7 +51,6 @@ public:
 
             if(extra>0 && temp)
             {
-                cout<<extra<<" ";
                 if(tail == NULL)
                 {
                     head = temp;
