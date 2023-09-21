@@ -2,7 +2,7 @@
 Two Pointer without Extra Space (Insertion Sort [applied on second array])
 1. Make the array num1 of size num1+num2.
 2. Starting comparing and insert smaller elements into nums1.
-    2.1 Continue if nums[i] < nums2[0].
+    2.1 Continue if nums1[i] < nums2[0].
     2.2 Else, swap them and then sort the nums2 array using insertion sort.
 3. Now Insert elements if remaining in nums2 array.
 4. Now, Find median using formula.
