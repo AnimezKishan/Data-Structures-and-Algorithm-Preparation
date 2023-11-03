@@ -1,6 +1,6 @@
 /*
 
-'i' is assigned to iterate through 1 --> n.
+'i' is assigned to iterate through stream of the integers in the range [1, n].
 'j' is assigned to iterate through elements of target.
 
 Since the elements of target is strictly increasing, if the iterated element of target (i) is equal to the iterated no. (j)
@@ -23,16 +23,11 @@ public:
         int j=0;
         for(int i=1;i<=n && j<target.size();i++)
         {
+            ans.push_back("Push");
             if(target[j] == i)
-            {
-                ans.push_back("Push");
                 j++;
-            }
             else
-            {
-                ans.push_back("Push");
                 ans.push_back("Pop");
-            }
         }
         return ans;
     }
