@@ -32,7 +32,7 @@ public:
 };
 
 
-// O(n^2)
+// O(n*log(n))
 class Solution {
 public:
     int maximumElementAfterDecrementingAndRearranging(vector<int>& arr) {
