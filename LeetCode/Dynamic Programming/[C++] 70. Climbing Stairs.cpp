@@ -2,7 +2,8 @@
 
 class Solution {
 public:
-    int solve(int n, vector<int> &dp)
+    int dp[46];
+    int solve(int n)
     {
         if(n<0)
             return 0;
@@ -13,11 +14,16 @@ public:
         if(dp[n] != -1)
             return dp[n];
 
-        return dp[n] = solve(n-1, dp) + solve(n-2, dp);
+        int oneStair = 0, twoStair = 0;
+
+        oneStair = solve(n-1);
+        twoStair = solve(n-2);
+
+        return dp[n] = oneStair + twoStair;
     }
 
     int climbStairs(int n) {
-        vector<int> dp(n+1, -1);
-        return solve(n, dp);
+        memset(dp, -1, sizeof(dp));
+        return solve(n);
     }
 };
