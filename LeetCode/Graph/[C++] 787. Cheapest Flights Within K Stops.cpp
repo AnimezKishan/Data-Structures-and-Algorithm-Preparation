@@ -47,3 +47,47 @@ public:
         return -1;
     }
 };
+
+
+// Without Min Heap
+/*
+class Solution {
+public:
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        vector<int> distance(n, INT_MAX);
+        unordered_map<int, vector<pair<int, int>>> adj;
+
+        for(vector<int> &flight:flights){
+            int u = flight[0];
+            int v = flight[1];
+            int w = flight[2];
+
+            adj[u].push_back({v, w});
+        }
+
+        queue<pair<int, int>> q;
+        q.push({src, 0});
+        int steps = 0;
+
+        while(!q.empty() && steps <= k){
+            int size = q.size();
+            while(size--){
+                int u = q.front().first;
+                int w = q.front().second;
+                q.pop();
+
+                for(auto i:adj[u]){
+                    if(w+i.second < distance[i.first]){
+                        distance[i.first] = w+i.second;
+                        q.push({i.first, distance[i.first]});
+                    }
+                }
+
+            }
+            steps++;
+        }
+
+        return distance[dst] == INT_MAX ? -1 : distance[dst];
+    }
+};
+*/
