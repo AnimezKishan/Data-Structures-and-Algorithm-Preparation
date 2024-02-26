@@ -34,3 +34,33 @@ public:
 
     }
 };
+
+
+/*
+class Solution {
+public:
+    bool identical = true;
+    void solve(TreeNode* p, TreeNode* q){
+        if(!p && !q){
+            return;
+        }
+
+        if(!q || !p){
+            identical = false;
+            return;
+        }
+
+        if(p->val != q->val){
+            identical = false;
+            return;
+        }
+
+        solve(p->left, q->left);
+        solve(p->right, q->right);
+    }
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        solve(p, q);
+        return identical;    
+    }
+};
+*/
