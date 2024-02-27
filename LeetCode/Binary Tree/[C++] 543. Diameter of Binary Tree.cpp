@@ -44,3 +44,44 @@ public:
         return diameter(root).first-1;
     }
 };
+
+/*
+Approach II - Calculate diameter for every node treating it as root node.
+class Solution {
+public:
+    int ans = INT_MIN;
+    void solve2(TreeNode* root, int depth, int &ans){
+        if(!root){
+            if(ans < depth)
+                ans = depth;
+            return;
+        }
+        
+        depth++;
+
+        solve2(root->left, depth, ans);
+        solve2(root->right, depth, ans);
+    }
+    void solve1(TreeNode* root){
+        if(!root)
+            return;
+        
+        int leftP = 0, rightP = 0;
+        solve2(root->left, 0, leftP);
+        solve2(root->right, 0, rightP);
+
+        ans = max(ans, leftP+rightP);
+
+        if(root->left)
+            solve1(root->left);
+
+        if(root->right)
+            solve1(root->right);
+
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        solve1(root);
+        return ans; 
+    }
+};
+*/
