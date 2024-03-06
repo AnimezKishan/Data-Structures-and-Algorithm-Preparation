@@ -10,6 +10,8 @@
 /*
 T.C -> O(n)
 S.C -> O(1)
+
+Ultimately, the slow pointer will catch up the fast pointer if cycle exists.
 */
 
 class Solution {
