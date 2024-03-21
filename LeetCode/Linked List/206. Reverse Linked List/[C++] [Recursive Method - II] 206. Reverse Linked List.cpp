@@ -24,3 +24,26 @@ public:
         return reverse(head);
     }
 };
+
+/*
+class Solution {
+public:
+    ListNode* temp;
+    void solve(ListNode* head){
+        if(!head || !head->next){
+            temp = head;
+            return;
+        }
+        
+        solve(head->next);
+
+        head->next->next = head;
+        head->next = NULL;
+    }
+
+    ListNode* reverseList(ListNode* head) {
+        solve(head);
+        return temp;
+    }
+};
+*/
