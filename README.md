@@ -23,7 +23,6 @@ Mostly, the problems are solved using C++ (.cpp)
 - [Stack](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#stack)
 - [Trie](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#trie)
 
-<br/>
 ### Arrays
 | # | Title | Solution |
 |---| ----- | -------- |
