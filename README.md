@@ -6,6 +6,24 @@ Mostly, the problems are solved using C++ (.cpp)
 <br/>
 <br/>
 ## Topicwise LeetCode Solutions
+- [Arrays](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation#arrays)
+- [Binary Tree](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#binary-tree)
+- [Binary Search Tree](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#binary-search-tree)
+- [Bit Manipulation](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#bit-manipulation)
+- [Dynamic Programming](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#dynamic-programming)
+- [Graph](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#graph)
+- [Hashmap](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#hashmap)
+- [Heap](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#heap)
+- [Linked List](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#linked-list)
+- [Math](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#math)
+- [Queue](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#queue)
+- [Recursion](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#recursion)
+- [Sliding Window](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#sliding-window)
+- [Sorting and Searching](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#sorting-and-searching)
+- [Stack](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#stack)
+- [Trie](https://github.com/AnimezKishan/Data-Structures-and-Algorithm-Preparation/tree/main#trie)
+
+<br/>
 ### Arrays
 | # | Title | Solution |
 |---| ----- | -------- |
