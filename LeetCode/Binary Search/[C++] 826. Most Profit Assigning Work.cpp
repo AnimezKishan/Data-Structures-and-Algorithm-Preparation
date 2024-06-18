@@ -47,3 +47,37 @@ public:
         return ans;
     }
 };
+
+
+// Max-Heap
+// T.C -> O(n*log(n) + m*log(n))
+// S.C -> O(n)
+/*
+class Solution {
+public:
+    int maxProfitAssignment(vector<int>& difficulty, vector<int>& profit, vector<int>& worker) {
+        int n = profit.size();
+        int m = worker.size();
+
+        priority_queue<pair<int, int>> max_heap;
+        for(int i=0; i<n; i++)
+            max_heap.push({ profit[i], difficulty[i] }); // heap on basis of profit.
+
+        sort(begin(worker), end(worker), greater<int>()); // descending order.
+
+        int i = 0, ans = 0;
+        while(i<m && !max_heap.empty()){
+            int currWorker = worker[i];
+            // If difficulty of current worker is smaller than profit's difficulty. Other workers would also be smaller. 
+            if(currWorker < max_heap.top().second)
+                max_heap.pop();
+            else{
+                i++;
+                ans += max_heap.top().first;
+            }
+        }
+
+        return ans;
+    }
+};
+*/
