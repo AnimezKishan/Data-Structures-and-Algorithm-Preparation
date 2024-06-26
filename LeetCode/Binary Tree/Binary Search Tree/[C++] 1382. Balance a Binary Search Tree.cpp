@@ -10,41 +10,39 @@
  * };
  */
 
- /*
- -> Store the inorder traversal in a vector.
- -> Take the mid value of vector as root node and store left values in left child and store right values in right child.
- -> Repeat the second step using recursion until its done.
- */
+/*
+-> Convert the given BST into sorted array using Inorder Traversal.
+-> Using that Sorted Array, make the Balanced BST.
+*/
+
 class Solution {
 public:
-    void inorder(TreeNode* root, vector<int> &inorderVal)
-    {
-        if(root == NULL)
+    vector<int> vec;
+    void inOrder(TreeNode* root) {
+        if(!root)
             return;
         
-        inorder(root->left, inorderVal);
-        inorderVal.push_back(root->val);
-        inorder(root->right, inorderVal);
+        inOrder(root->left);
+        vec.push_back(root->val);
+        inOrder(root->right);
     }
 
-    TreeNode* balancedBST(int s, int e, vector<int> &inorderVal)
-    {
-        if(s>e)
+    TreeNode* solve(int s, int e){
+        if(s > e)
             return NULL;
         
-        int mid = s+(e-s)/2;
-        TreeNode* root = new TreeNode(inorderVal[mid]);
-        root->left = balancedBST(s, mid-1, inorderVal);
-        root->right = balancedBST(mid+1, e, inorderVal);
+        int mid = s + (e-s)/2;
+        TreeNode* root = new TreeNode(vec[mid]);
+        root->left = solve(s, mid-1);
+        root->right = solve(mid+1, e);
 
         return root;
     }
 
     TreeNode* balanceBST(TreeNode* root) {
-    // store inorder -> sorted values
-    vector<int> inorderVal;
-    inorder(root, inorderVal);
+        inOrder(root);
+        int n = vec.size();
 
-    return balancedBST(0, inorderVal.size()-1, inorderVal);
+        return solve(0, n-1);
     }
 };
