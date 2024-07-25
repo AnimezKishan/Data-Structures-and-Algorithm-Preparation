@@ -44,3 +44,77 @@ public:
         return nums;
     }
 };
+
+
+// Counting Sort
+/*
+class Solution {
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        int minElem = *min_element(begin(nums), end(nums));
+        int maxElem = *max_element(begin(nums), end(nums));
+
+        unordered_map<int, int> mp;
+
+        for(int &num:nums)
+            mp[num]++;
+
+        int idx = 0;
+        for(int i=minElem; i<=maxElem; i++){
+            while(mp[i]){
+                nums[idx++] = i;
+                mp[i]--;
+            }
+        }
+
+        return nums;
+    }
+};
+*/
+
+
+// Quick Sort [gives TLE because of not selecting pivot randomly]
+/*
+-> We take a element as pivot and set it's correct position in which:
+    -> we place all elements less than pivot element left to it.
+    -> we place all elements greater than pivot element right to it.
+-> Then we do the same thing recursively for the left and right part.
+
+Core of Quick Sort is -> Place a pivot element into it's correct position at a time.
+*/
+/*
+class Solution {
+public:
+    void quickSort(vector<int> &nums, int low, int high) {
+        if(low >= high) {
+            return;
+        }
+        
+        int pivotIndex = partition(nums, low, high);
+        
+        quickSort(nums, low, pivotIndex-1);
+        quickSort(nums, pivotIndex+1, high);
+    }
+    
+    public:
+    int partition (vector<int> &nums, int low, int high) {
+        int pivot = nums[high];
+        int pivotIndex = low;
+        
+        for(int i = low; i < high; i++) {
+            if(nums[i] <= pivot) {
+                swap(nums[i], nums[pivotIndex]);
+                pivotIndex++;
+            }
+        }
+        
+        swap(nums[pivotIndex], nums[high]);
+        
+        return pivotIndex;
+    }
+    vector<int> sortArray(vector<int>& nums) {
+        quickSort(nums, 0, nums.size()-1);
+        return nums;
+    }
+};
+*/
