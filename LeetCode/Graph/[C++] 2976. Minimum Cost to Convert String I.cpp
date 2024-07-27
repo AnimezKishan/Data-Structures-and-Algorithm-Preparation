@@ -10,25 +10,26 @@ public:
         pq.push({0, source});
 
         while(!pq.empty()) {
-            int d = pq.top().first;
+            int w = pq.top().first;
             char adjNode = pq.top().second;
             pq.pop();
 
             for(auto &it : adj[adjNode]) {
                 char adjNode = it.first;
-                int cost = it.second;
+                int currW = it.second;
 
-                if(costMatrix[source - 'a'][adjNode - 'a'] > d + cost) {
-                    costMatrix[source - 'a'][adjNode - 'a'] = d + cost;
-                    pq.push({d + cost, adjNode});
+                if(costMatrix[source - 'a'][adjNode - 'a'] > w + currW) {
+                    costMatrix[source - 'a'][adjNode - 'a'] = w + currW;
+                    pq.push({w + currW, adjNode});
                 }
             }
 
         }
         return;
     }
-    //V = # of vertices
-    //E = # of edges
+
+    //V = no of vertices
+    //E = no of edges
     //O(n * (V+E)log(V))
     long long minimumCost(string source, string target, vector<char>& original, vector<char>& changed, vector<int>& cost) {
         unordered_map<char, vector<pair<char, int>>> adj;
@@ -40,7 +41,7 @@ public:
         vector<vector<long long>> costMatrix(26, vector<long long>(26, INT_MAX));
 
         //Populate the costMatrix using Dijkstra's Algorithm
-        for(int i = 0; i < source.length(); i++) { //n
+        for(int i = 0; i < source.length(); i++) { 
             char ch = source[i];
             dijkstra(ch, adj, costMatrix);
         }
