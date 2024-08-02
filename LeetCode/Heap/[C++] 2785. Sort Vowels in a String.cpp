@@ -20,3 +20,39 @@ public:
         return s;
     }
 };
+
+// O(n)
+/*
+class Solution {
+public:
+    bool isVowel(char &v){
+        if(v == 'A' || v == 'E' || v == 'I' || v == 'O' || v == 'U' || v == 'a' || v == 'e' || v == 'i' || v == 'o' || v == 'u')
+        return true;
+    return false;
+    }
+    string sortVowels(string s) {
+        int n = s.length();
+        vector<int> vowelCount(130, 0);
+
+        for(int i=0; i<n; i++){
+            if(isVowel(s[i]))
+                vowelCount[int(s[i])]++;
+        }
+
+        int j = 0;
+        for(int i=0; i<n; i++){
+            while(j < 130 && !vowelCount[j]){
+                j++;
+            }
+
+            if(isVowel(s[i])){
+                s[i] = char(j);
+                vowelCount[j]--;
+            }
+        }
+
+        return s;
+            
+    }
+};
+*/
