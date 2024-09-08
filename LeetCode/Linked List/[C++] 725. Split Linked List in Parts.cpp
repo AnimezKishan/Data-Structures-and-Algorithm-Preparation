@@ -73,3 +73,38 @@ public:
         return ans;
     }
 };
+
+
+/*
+class Solution {
+public:
+    vector<ListNode*> splitListToParts(ListNode* head, int k) {
+        int len = 0;
+        ListNode* curr = head;
+        while(curr){
+            len++;
+            curr = curr->next;
+        }
+
+        int partSize = len / k;
+        int extra = len % k;
+
+        vector<ListNode*> partHeads(k, NULL);
+        curr = head;
+        ListNode* prev = NULL;
+        for(int i=0; curr && i < k; i++) {
+            partHeads[i] = curr;
+
+            for(int count=0; count < partSize + (extra>0 ? 1 : 0); count++) {
+                prev = curr;
+                curr = curr->next;
+            }
+
+            prev->next = NULL;
+            extra--;
+        }
+
+        return partHeads;
+    }
+};
+*/
