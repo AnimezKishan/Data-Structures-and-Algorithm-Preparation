@@ -3,6 +3,7 @@ public:
     string makeFancyString(string s) {
         
         string temp = "";
+        
         for(int j=0; j<s.length(); j++) {
             if(temp.size() >= 2){
                 char last = temp.back();
