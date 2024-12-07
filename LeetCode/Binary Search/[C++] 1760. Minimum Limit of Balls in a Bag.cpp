@@ -16,19 +16,15 @@ class Solution {
 public:
     bool isPoss(int mid, vector<int>& nums, int maxOperations) {
         int reqOperations = 0;
-        cout<<mid<<endl;
         for(int &num : nums){
-            cout<<reqOperations<<" ";
             reqOperations += ceil((double)num/mid) - 1;
         }
-
-        cout<<endl<<endl;
 
         return reqOperations <= maxOperations;
     }
     int minimumSize(vector<int>& nums, int maxOperations) {
         int s = 1;
-        int e = *max_element(nums.begin(), nums.end());
+        int e = 1e9;
 
         int ans;
         while(s <= e) {
