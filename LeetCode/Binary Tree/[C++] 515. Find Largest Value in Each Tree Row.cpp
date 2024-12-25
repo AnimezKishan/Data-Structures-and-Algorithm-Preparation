@@ -60,3 +60,37 @@ public:
         return ans;
     }
 };
+
+// Optimized code - keep track of maximum value for each level
+/*
+class Solution {
+public:
+    vector<int> largestValues(TreeNode* root) {
+        if(!root)
+            return {};
+            
+        queue<TreeNode*> q;
+        q.push(root);
+
+        vector<int> ans;
+        while(!q.empty()) {
+            int n = q.size();
+            int maxi = INT_MIN;
+            while(n--) {
+                TreeNode* curr = q.front();
+                q.pop();
+
+                maxi = max(maxi, curr->val);
+
+                if(curr->left)
+                    q.push(curr->left);
+                if(curr->right)
+                    q.push(curr->right);
+            }
+            ans.push_back(maxi);
+        }
+
+        return ans;
+    }
+};
+ */
