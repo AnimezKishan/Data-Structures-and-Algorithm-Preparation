@@ -1,31 +1,23 @@
+// Prefix Sum
+
 class Solution {
 public:
     int maxScore(string s) {
         int n = s.length();
-        vector<int> zero_count(n-1);
-        vector<int> one_count(n-1);
+        vector<int> oneCount(n, 0);
 
-        int cnt = 0;
-        for(int i=0;i<n-1;i++){
-            if(s[i] == '0')
-                cnt++;
-            
-            zero_count[i] = cnt;
+        // store the one count from right to left
+        oneCount[n-1] = s[n-1] == '1';
+        for(int i=n-2; i>=0; i--) {
+            oneCount[i] = oneCount[i+1] + (s[i] == '1');
+        }
+        
+        int ans = 0, zeroCount = 0;
+        for(int i=0; i<n-1; i++) {
+            zeroCount += s[i] == '0';
+            ans = max(ans, zeroCount + oneCount[i+1]);
         }
 
-        cnt = 0;
-        for(int i=n-1;i>=1;i--){
-            if(s[i] == '1')
-                cnt++;
-            
-            one_count[i-1] = cnt;
-        }
-
-        int ans = INT_MIN;
-        for(int i=0;i<n-1;i++)
-            ans = max(ans, zero_count[i]+one_count[i]);
-        
-        
         return ans;
     }
 };
