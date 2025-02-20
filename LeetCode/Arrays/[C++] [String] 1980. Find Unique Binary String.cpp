@@ -24,3 +24,34 @@ public:
         return ans;
     }
 };
+
+// Recursive Approach
+/*
+class Solution {
+public:
+    void solve(int i, string currStr, string &missingStr, int n, unordered_map<string, bool> &mp) {
+        if(i == n) {
+            if(mp.find(currStr) == mp.end())
+                missingStr = currStr;
+            return;
+        }
+
+        for(char ch='0'; ch<='1'; ch++) {
+            solve(i+1, currStr+ch, missingStr, n, mp);
+            if(missingStr != "")
+                return;
+        }
+    }
+    string findDifferentBinaryString(vector<string>& nums) {
+        int n = nums[0].length();
+        unordered_map<string, bool> mp;
+        for(string &s : nums) {
+            mp[s] = true;
+        }
+        
+        string missingString = "";
+        solve(0, "", missingString, n, mp);
+        return missingString;
+    }
+};
+*/
