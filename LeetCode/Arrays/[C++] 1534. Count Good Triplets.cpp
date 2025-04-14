@@ -1,7 +1,6 @@
 class Solution {
     public:
         int countGoodTriplets(vector<int>& arr, int a, int b, int c) {
-            unordered_map<int, int> mp;
             int n = arr.size();
     
             int ans = 0;
