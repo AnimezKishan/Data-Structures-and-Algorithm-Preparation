@@ -1,9 +1,11 @@
 class Solution {
 public:
     long long countSubarrays(vector<int>& nums, int minK, int maxK) {
+        int n = nums.size();
         int minKPosition = -1, maxKPosition = -1, culpritPosition = -1, temp;
         long long ans = 0;
-        for(int i=0;i<nums.size();i++){
+
+        for(int i=0;i<n;i++){
             if(nums[i] < minK || nums[i] > maxK){
                 culpritPosition = i;
             }
