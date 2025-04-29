@@ -36,29 +36,29 @@ public:
 
 // Other Apporach using sliding window only
 class Solution {
-    public:
-        long long countSubarrays(vector<int>& nums, int k) {
-            int maxi = *max_element(begin(nums), end(nums));
-    
-            int n = nums.size(), i = 0, j = 0, count = 0;
-            long long ans = 0;
-    
-            while(j < n) {
-                if(nums[j] == maxi)
-                    count++;
+public:
+    long long countSubarrays(vector<int>& nums, int k) {
+        int maxi = *max_element(begin(nums), end(nums));
+
+        int n = nums.size(), i = 0, j = 0, count = 0;
+        long long ans = 0;
+
+        while(j < n) {
+            if(nums[j] == maxi)
+                count++;
+            
+            while(count == k) {
+                ans += n-j;
+
+                if(nums[i] == maxi)
+                    count--;
                 
-                while(count == k) {
-                    ans += n-j;
-    
-                    if(nums[i] == maxi)
-                        count--;
-                    
-                    i++;
-                }
-    
-                j++;
+                i++;
             }
-    
-            return ans;
+
+            j++;
         }
-    };
+
+        return ans;
+    }
+};
