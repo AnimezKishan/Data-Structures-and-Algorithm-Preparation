@@ -1,3 +1,4 @@
+// Top Down
 class Solution {
 public:
     int n;
@@ -24,5 +25,30 @@ public:
         n = nums.size();
         memset(dp, -1, sizeof(dp));
         return solve(0, nums, -1);
+    }
+};
+
+
+// Bottom Up
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+
+        vector<int> dp(n, 1);
+        int longestSubSeq = 1;
+
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<i; j++) {
+                if(nums[i] > nums[j] && dp[j]+1 > dp[i]) {
+                    dp[i] = dp[j]+1;
+
+                    if(longestSubSeq < dp[i])
+                        longestSubSeq = dp[i];
+                }
+            }
+        }
+
+        return longestSubSeq;
     }
 };
